@@ -14,17 +14,34 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int x = 1, z = 1;
+        float d = 0.1f;
+        float f = 0.7071f * d;
+        float[,] dir = new float[,] {
+            {-f,0,f},
+            {-d,0,d},
+            {-f,0,f}
+        };
+
         if (Input.GetKey(KeyCode.UpArrow))
-            this.transform.position += new Vector3(-0.1f, 0, 0) ;
+            z++;
         if (Input.GetKey(KeyCode.DownArrow))
-            this.transform.position += new Vector3(0.1f, 0, 0);
+            z--;
         if (Input.GetKey(KeyCode.RightArrow))
-            this.transform.position += new Vector3(0, 0, 0.1f);
+            x++;
         if (Input.GetKey(KeyCode.LeftArrow))
-            this.transform.position += new Vector3(0, 0, -0.1f);
-        if (Input.GetKey(KeyCode.Space))
-            this.transform.position += new Vector3(0, 0.1f, 0);
-        if (Input.GetKey(KeyCode.LeftShift))
-            this.transform.position += new Vector3(0, -0.1f, 0);
+            x--;
+
+        Vector3 v = transform.position;
+        transform.position += new Vector3(dir[z, x], 0, dir[x, z]);
+
+        if (v.x > 3)
+            transform.position += new Vector3(3 - v.x, 0, 0);
+        if (v.x < -3)
+            transform.position += new Vector3(-3 - v.x, 0, 0);
+        if (v.z > 2.5)
+            transform.position += new Vector3(0, 0, 2.5f - v.z);
+        if (v.z < -2.5)
+            transform.position += new Vector3(0, 0, -2.5f - v.z);
     }
 }
