@@ -52,8 +52,16 @@ public class FoodGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i =0; i < FoodDrop.Count; i++)
+        for (int i = 0; i < FoodDrop.Count; i++)
+        {
             FoodDrop[i].transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+
+            if(FoodDrop[i].transform.position.y<-3){
+                Destroy(FoodDrop[i]);
+                FoodDrop.RemoveAt(i);
+                i--;
+            }
+        }
 
         if (timer < AddRate)
         {

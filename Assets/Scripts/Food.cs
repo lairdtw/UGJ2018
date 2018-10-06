@@ -18,9 +18,9 @@ public class Food : MonoBehaviour {
     {
         if (collision.transform.name == "Player")
         {
-            Debug.Log("test");
             FoodGenerator.FoodDrop.Remove(gameObject);
             Destroy(gameObject);
+            Bar.food += 10;
         }
     }
 }
