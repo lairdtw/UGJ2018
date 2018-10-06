@@ -33,15 +33,15 @@ public class move : MonoBehaviour
             x--;
 
         Vector3 v = transform.position;
-        transform.position += new Vector3(dir[z, x], 0, dir[x, z]);
+        transform.position += new Vector3(dir[z, x], dir[x, z], 0);
 
         if (v.x > 3)
-            transform.position += new Vector3(3 - v.x, 0, 0);
+            transform.position += new Vector3(3 - v.x, 0);
         if (v.x < -3)
-            transform.position += new Vector3(-3 - v.x, 0, 0);
+            transform.position += new Vector3(-3 - v.x, 0);
         if (v.z > 2.5)
-            transform.position += new Vector3(0, 0, 2.5f - v.z);
+            transform.position += new Vector3(0, 2.5f - v.z, 0);
         if (v.z < -2.5)
-            transform.position += new Vector3(0, 0, -2.5f - v.z);
+            transform.position += new Vector3(0, - 2.5f - v.z, 0);
     }
 }

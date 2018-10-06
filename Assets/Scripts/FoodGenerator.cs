@@ -18,7 +18,7 @@ public class FoodGenerator : MonoBehaviour
 
     public float moveSpeed = 2f;
 
-    List<GameObject> FoodDrop = new List<GameObject>();
+    public static List<GameObject> FoodDrop = new List<GameObject>();
 
     float[] foodPos = new float[] { -2.4f,-1.2f,0.0f,1.2f,2.4f};
 
@@ -53,7 +53,7 @@ public class FoodGenerator : MonoBehaviour
     void Update()
     {
         for (int i =0; i < FoodDrop.Count; i++)
-            FoodDrop[i].transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            FoodDrop[i].transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
 
         if (timer < AddRate)
         {
@@ -93,10 +93,9 @@ public class FoodGenerator : MonoBehaviour
             strPos.Remove(r1);
 
             GameObject f = Instantiate(AllFoods[randomIndex]) as GameObject;
-            f.transform.position = new Vector3(foodPos[r1], 0.0f, 3.2f);
+            f.transform.position = new Vector3(foodPos[r1], 3.2f, 0);
             FoodDrop.Add(f);
         }
     }
-
 }
 
