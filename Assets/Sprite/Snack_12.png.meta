@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: 06abfa1a90074456a8bcf5b39c876f4f
+guid: 0c64805e6c03d480699c056b66416eb8
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Player_0
-    21300002: Player_1
-    21300004: Player_2
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -43,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,71 +82,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Player_0
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 18
-        width: 240
-        height: 358
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0db53906c879b4696822d79fec0fce2a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_1
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 7
-        width: 241
-        height: 366
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84d77bb2728124a7abc906a723c03d05
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_2
-      rect:
-        serializedVersion: 2
-        x: 876
-        y: 19
-        width: 256
-        height: 351
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 593d56e6e65144ef092039d493da506b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: af895cd6fa4ff47cea483fdbfeb6da36
+    spriteID: 
     vertices: []
     indices: 
     edges: []

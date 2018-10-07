@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour {
         text.text = timer+"";
 
         if(timer<0){
-            if (Bar.food <= 80 && Bar.food >= 60) FoodGenerator.state = FoodGenerator.State.Next;
+            if (Bar.food <= 86 && Bar.food >= 68) FoodGenerator.state = FoodGenerator.State.Next;
             else FoodGenerator.state = FoodGenerator.State.Die;
         }
 	}

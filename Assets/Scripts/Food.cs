@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Food : MonoBehaviour {
 
-    int type;
+    public int type;
 	// Use this for initialization
 	void Start () {
 		

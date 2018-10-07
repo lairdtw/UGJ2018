@@ -30,7 +30,7 @@ public class FoodGenerator : MonoBehaviour
     void Start()
     {
         state = State.Start;
-        Init();
+        //Init();
     }
 
     public void Init()
@@ -58,6 +58,8 @@ public class FoodGenerator : MonoBehaviour
     void Menu()
     {
         if (!Input.GetMouseButton(0)) return;
+        Debug.Log("ssss");
+
         if (state == State.Start || state == State.Die) Init();
 
         if (state == State.Next)
@@ -110,6 +112,7 @@ public class FoodGenerator : MonoBehaviour
 
     void AddFood()
     {
+        //固定
         int rShow = Random.Range(1, 6);
 
         List<int> strPos = new List<int>();
