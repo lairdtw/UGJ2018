@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class State : MonoBehaviour {
 
     public Text text;
+    public AudioSource LoopMusic;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,6 +18,8 @@ public class State : MonoBehaviour {
 	void Update () {
         switch(FoodGenerator.state){
             case FoodGenerator.State.Start: text.text = "點擊開始";
+                //LoopMusic.clip = Resources.Load<AudioClip>("Music/Game");
+                LoopMusic.Play();
                 break;
             case FoodGenerator.State.Die:
                 text.text = " 你死了 ";
