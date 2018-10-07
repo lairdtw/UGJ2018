@@ -20,7 +20,7 @@ public class Food : MonoBehaviour {
         {
             FoodGenerator.FoodDrop.Remove(gameObject);
             Destroy(gameObject);
-            Bar.food += 10;
+            Bar.food += 5+Level.level/5;
         }
     }
 }

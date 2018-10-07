@@ -5,14 +5,28 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
     public Text text;
+    public static float timer;
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        text.text = (30-Time.time)+"";
+        if (FoodGenerator.state != FoodGenerator.State.Play) return;
+
+        timer -= Time.deltaTime;
+        text.text = timer+"";
+
+        if(timer<0){
+            if (Bar.food <= 80 && Bar.food >= 60) FoodGenerator.state = FoodGenerator.State.Next;
+            else FoodGenerator.state = FoodGenerator.State.Die;
+        }
 	}
+
+    /*IEnumerator levelTime()
+    {
+        yield return new WaitForSeconds(30.0f);
+    }*/
 }
+

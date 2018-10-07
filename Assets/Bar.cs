@@ -17,10 +17,11 @@ public class Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (FoodGenerator.state != FoodGenerator.State.Play) return;
+
         food -= 5 * Time.deltaTime;
-        food = food > 100 ? 100 : food;
         cooldown.fillAmount = (float)(food / goal);
-        Debug.Log(food);
-        Debug.Log(cooldown.fillAmount);
+
+        if(food > 100 || Bar.food < 0) FoodGenerator.state = FoodGenerator.State.Die;
     }
 }

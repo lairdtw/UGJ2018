@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class FoodGenerator : MonoBehaviour
 {
-    float AddRate = 1.0f;
+    const float AddRate = 1.0f;
     float timer = 0;
+    public enum State { Start, Play, Die, Next };
+    public static State state;
 
     int randomIndex;
 
@@ -20,7 +22,7 @@ public class FoodGenerator : MonoBehaviour
 
     public static List<GameObject> FoodDrop = new List<GameObject>();
 
-    float[] foodPos = new float[] { -2.4f,-1.2f,0.0f,1.2f,2.4f};
+    float[] foodPos = new float[] { -2.4f, -1.2f, 0.0f, 1.2f, 2.4f };
 
     void Awake()
     {
@@ -29,14 +31,20 @@ public class FoodGenerator : MonoBehaviour
 
     void Start()
     {
+        state = State.Start;
         Init();
     }
 
     public void Init()
     {
-
-        //初始位置
+        Timer.timer = 30;
+        foreach (GameObject f in FoodDrop) Destroy(f);
+        FoodDrop.Clear();
         AddFood();
+        state = State.Play;
+        Bar.food = 50;
+
+        GameObject.Find("Player").transform.position = new Vector3(0, -2, 0);
 
         // The step size is equal to speed times frame time.
         //float Speed = DropSpeed * Time.deltaTime;
@@ -49,14 +57,32 @@ public class FoodGenerator : MonoBehaviour
 
     }
 
+    void Menu()
+    {
+        if (!Input.GetMouseButton(0)) return;
+        if (state == State.Start || state == State.Die) Init();
+
+        if (state == State.Next)
+        {
+            Level.level++;
+            Init();
+
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        Menu();
+
+        if (state != State.Play) return;
+
         for (int i = 0; i < FoodDrop.Count; i++)
         {
             FoodDrop[i].transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
 
-            if(FoodDrop[i].transform.position.y<-3){
+            if (FoodDrop[i].transform.position.y < -3)
+            {
                 Destroy(FoodDrop[i]);
                 FoodDrop.RemoveAt(i);
                 i--;
