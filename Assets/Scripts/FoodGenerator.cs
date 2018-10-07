@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoodGenerator : MonoBehaviour
 {
-    const float AddRate = 1.0f;
+    float AddRate = 1.0f;
     float timer = 0;
     public enum State { Start, Play, Die, Next };
     public static State state;
@@ -18,11 +18,9 @@ public class FoodGenerator : MonoBehaviour
 
     public List<GameObject> AllFoods;
 
-    public float moveSpeed = 2f;
-
     public static List<GameObject> FoodDrop = new List<GameObject>();
 
-    float[] foodPos = new float[] { -2.4f, -1.2f, 0.0f, 1.2f, 2.4f };
+    float[] foodPos = new float[] { -2.4f, -1.2f, 0, 1.2f, 2.4f };
 
     void Awake()
     {
@@ -37,7 +35,7 @@ public class FoodGenerator : MonoBehaviour
 
     public void Init()
     {
-        Timer.timer = 20;
+        Timer.timer = 15;
         foreach (GameObject f in FoodDrop) Destroy(f);
         FoodDrop.Clear();
         AddFood();
@@ -79,7 +77,7 @@ public class FoodGenerator : MonoBehaviour
 
         for (int i = 0; i < FoodDrop.Count; i++)
         {
-            FoodDrop[i].transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+            FoodDrop[i].transform.Translate(Vector3.down * (3+Level.level/5) * Time.deltaTime);
 
             if (FoodDrop[i].transform.position.y < -3)
             {
@@ -96,6 +94,7 @@ public class FoodGenerator : MonoBehaviour
         else
         {
             AddFood();
+            AddRate = Random.Range(1,3);
             timer = 0;
         }
 
@@ -114,7 +113,7 @@ public class FoodGenerator : MonoBehaviour
         int rShow = Random.Range(1, 6);
 
         List<int> strPos = new List<int>();
-        for (int i = 0; i < rShow; i++)
+        for (int i = 0; i < 5; i++)
         {
             strPos.Add(i);
         }

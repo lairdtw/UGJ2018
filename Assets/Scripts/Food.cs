@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Food : MonoBehaviour {
 
+    int type;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,7 +21,7 @@ public class Food : MonoBehaviour {
         {
             FoodGenerator.FoodDrop.Remove(gameObject);
             Destroy(gameObject);
-            Bar.food += 5+Level.level/5;
+            Bar.food += Mathf.Pow(3+Level.level/5,type)*5;
         }
     }
 }
