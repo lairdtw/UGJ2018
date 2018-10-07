@@ -21,7 +21,8 @@ public class move : MonoBehaviour
         if (v.x < -3) v.x = -3;
         if (v.y > 2.5) v.y = 2.5f;
         if (v.y < -2.5) v.y = -2.5f;
+        v.z = 0;
 
-        transform.position = new Vector3(v.x,v.y,0);
+        transform.position = v;
     }
 }
