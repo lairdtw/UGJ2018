@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Level : MonoBehaviour {
     public Text text;
-    public static int level=30;
+    public static int level=1;
 
 	// Use this for initialization
 	void Start () {
