@@ -58,7 +58,6 @@ public class FoodGenerator : MonoBehaviour
     void Menu()
     {
         if (!Input.GetMouseButton(0)) return;
-        Debug.Log("ssss");
 
         if (state == State.Start || state == State.Die) Init();
 
