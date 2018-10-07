@@ -16,6 +16,12 @@ public class move : MonoBehaviour
     {
         if (FoodGenerator.state != FoodGenerator.State.Play) return;
 
-        transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y,0);
+        Vector3 v= Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (v.x > 3) v.x = 3;
+        if (v.x < -3) v.x = -3;
+        if (v.y > 2.5) v.y = 2.5f;
+        if (v.y < -2.5) v.y = -2.5f;
+
+        transform.position = new Vector3(v.x,v.y,0);
     }
 }

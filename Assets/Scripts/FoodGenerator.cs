@@ -37,7 +37,7 @@ public class FoodGenerator : MonoBehaviour
 
     public void Init()
     {
-        Timer.timer = 30;
+        Timer.timer = 20;
         foreach (GameObject f in FoodDrop) Destroy(f);
         FoodDrop.Clear();
         AddFood();
