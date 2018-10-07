@@ -22,6 +22,10 @@ public class FoodGenerator : MonoBehaviour
 
     float[] foodPos = new float[] { -2.4f, -1.2f, 0, 1.2f, 2.4f };
 
+    public GameObject bg;
+    GameObject b1, b2;
+    float d = 9.98f;
+
     void Awake()
     {
         //        GameLogic.GetInstance().GeneratorMediator.Regist_FoodGenerator(this);
@@ -31,6 +35,12 @@ public class FoodGenerator : MonoBehaviour
     {
         state = State.Start;
         //Init();
+
+        b1 = Instantiate(bg) as GameObject;
+        b2 = Instantiate(bg) as GameObject;
+
+        b1.transform.position = new Vector3(0, 0, 0);
+        b2.transform.position = new Vector3(0, d, 0);
     }
 
     public void Init()
@@ -43,16 +53,6 @@ public class FoodGenerator : MonoBehaviour
         Bar.food = 50;
 
         GameObject.Find("Player").transform.position = new Vector3(0, -2, 0);
-
-        // The step size is equal to speed times frame time.
-        //float Speed = DropSpeed * Time.deltaTime;
-
-        // Move our position a step closer to the target.
-        //Food.transform.position = Vector3.MoveTowards(Food.transform.position, Playground.transform.position, Speed);
-
-
-
-
     }
 
     void Menu()
@@ -99,15 +99,12 @@ public class FoodGenerator : MonoBehaviour
             timer = 0;
         }
 
+        b1.transform.position += new Vector3(0, -0.1f, 0);
+        if (b1.transform.position.y < -d) b1.transform.position += new Vector3(0, 2*d, 0);
+
+        b2.transform.position += new Vector3(0, -0.1f, 0);
+        if (b2.transform.position.y < -d) b2.transform.position += new Vector3(0, 2*d, 0);
     }
-
-    //For Timer
-    public void GenerateAccordingTime()
-    {
-
-        Init();
-    }
-
 
     void AddFood()
     {
