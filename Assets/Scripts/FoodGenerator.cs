@@ -99,10 +99,10 @@ public class FoodGenerator : MonoBehaviour
             timer = 0;
         }
 
-        b1.transform.position += new Vector3(0, -0.1f, 0);
+        b1.transform.position += new Vector3(0, -0.02f, 0);
         if (b1.transform.position.y < -d) b1.transform.position += new Vector3(0, 2*d, 0);
 
-        b2.transform.position += new Vector3(0, -0.1f, 0);
+        b2.transform.position += new Vector3(0, -0.02f, 0);
         if (b2.transform.position.y < -d) b2.transform.position += new Vector3(0, 2*d, 0);
     }
 
