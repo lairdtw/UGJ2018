@@ -39,8 +39,8 @@ public class FoodGenerator : MonoBehaviour
         b1 = Instantiate(bg) as GameObject;
         b2 = Instantiate(bg) as GameObject;
 
-        b1.transform.position = new Vector3(0, 0, 0);
-        b2.transform.position = new Vector3(0, d, 0);
+        b1.transform.position = new Vector3(0, 0, 1);
+        b2.transform.position = new Vector3(0, d, 1);
     }
 
     public void Init()

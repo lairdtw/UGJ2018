@@ -1004,6 +1004,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1849961181}
   LoopMusic: {fileID: 0}
+  g1: {fileID: 1384766331122714, guid: c4e5cbab7edac4ee881a623def848b4c, type: 2}
+  g2: {fileID: 1161775019561096, guid: 1950747f6742a4cb1849040e6dac15ec, type: 2}
+  G1: {fileID: 0}
+  G2: {fileID: 0}
 --- !u!114 &1849961181
 MonoBehaviour:
   m_ObjectHideFlags: 0
